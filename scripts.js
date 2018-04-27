@@ -1,5 +1,6 @@
+// make the header stick to the top of the page when scrolling
 function navScroll() {
-	var menu = $(".main-nav");
+	var menu = $(".navbar");
 
 	if ($(window).scrollTop() > 50) {
 		menu.addClass("nav-scroll");
@@ -8,6 +9,7 @@ function navScroll() {
 	}
 }
 
+//make the page scroll slowly
 function smoothScroll() {
 	var link = $(this).attr("href");
 	$("html, body").animate({scrollTop:$(link).offset().top}, "slow");
@@ -23,4 +25,9 @@ $(document).ready(function() {
 
 	$("a").click(smoothScroll);
 
+	$('.toggle-nav').click(function(e) {
+		$(this).toggleClass('active');
+		$('.main-nav ul').toggleClass('active');
+		e.preventDefault();
+	});
 });

@@ -13,21 +13,12 @@ body {
 	color: #333;
 }
 
-#wrapper {
-	margin: auto;
-}
-
-.group:after {
-	display: table;
-	content: "";
-	clear:both;
-}
-
 h3 {
 	text-align: center;
 	font-weight: 400;
-	font-size: 2em;
-	padding-bottom: 7px;
+	font-size: 1.5em;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 h4 {
@@ -36,36 +27,30 @@ h4 {
 	letter-spacing: 0.05em;
 }
 
-section {
-	padding: 100px 0;
-}
-
-.about-section,
-.activities-section,
-.contact-section,
-.movies-content {
-	width: 90%;
-	max-width: 1200px;
-	text-align: left;
-	margin: 0 auto;
-}
-
 hr {
 	height: 1px;
-	width: 150px;
+	width: 100px;
 	text-align: center;
 	margin: 0 auto;
 	background: #666;
 	position: relative;
 	border: 0;
+	margin-bottom: 40px;
 }
 
-.section-title {
-	margin-bottom: 70px;
+.clearfix:after {
+	display: table;
+	content: "";
+	clear: both;
 }
+
+.container {
+	padding: 2em 1em;
+}
+
 /*============= HEADER ================*/
 .main-header {
-	height: 1000px;
+	height: 580px;
 	background: linear-gradient(rgba(51,84,129,.7), rgba(51,84,129,.7)),
 				url("images/lake.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
@@ -79,39 +64,15 @@ hr {
   	margin: 0 auto;
 }
 
-.main-nav {
-	padding-top: 15px;
+.navbar {
 	z-index: 100;
 	position: fixed;
 	left: 0;
 	top: 0;
 	width: 100%;
-	height: 70px;
 }
 
-.nav-container {
-	width: 90%;
-	max-width: 1200px;
-	margin: auto;
-	text-align: center;
-}
-
-.nav-scroll {
-	-webkit-transition: all  0.2s ease-in;
-  	-moz-transition: all  0.2s ease-in;
-  	-o-transition: all  0.2s ease-in;
-  	transition: all  0.2s ease-in;
-	background-color: rgba(51,84,129,.9);
-	padding-top: 10px;
-}
-
-.menu {
-	float: right;
-	display: inline;
-	padding-top: 10px;
-}
-
-.menu li {
+.main-nav li {
 	list-style: none;
 	display: inline;
 	font-size: 1.125em;
@@ -134,74 +95,59 @@ li a:focus {
 }
 
 .title {
-	padding-top: 270px;
-	font-size: 5em;
-	letter-spacing: -0.02em;
-	line-height: 1.3;
+	margin: 0;
+	padding-top: 200px;
+	font-size: 3.125em;
+	line-height: 1.1;
 	text-shadow: 0 1px 1px #4b4b4b;
-}
-
-.subtitle {
-	font-size: 2.25em;
-	line-height: 1.3;
-	border-top: 2px solid #fff;
-	display: inline;
-}
-
-.logo {
-	float: left;
-	height: 60px;
 }
 
 .down-arrow {
 	display: block;
-	width: 50px;
-	margin: 150px auto;
+	opacity: 0;
+}
+
+.subtitle {
+	font-size: 1.625em;
+	line-height: 1.5;
+	display: inline;
+}
+
+.nav-scroll {
+	-webkit-transition: all  0.2s ease-in;
+  	-moz-transition: all  0.2s ease-in;
+  	-o-transition: all  0.2s ease-in;
+  	transition: all  0.2s ease-in;
+	background-color: rgba(51,84,129,.9);
 }
 
 /*========== ABOUT SECTION =============*/
 
-.culture-section,
-.history-section,
-.environment-section {
+.col {
 	box-sizing: border-box;
-	width: 33.33%;
-	display: inline-block;
-	padding: 0 10px;
+	width: 100%;
+	margin-bottom: 20px;
 }
 
-.column-content {
-	min-height: 330px;
+.col-image {
+	width: 100%;
+	display: block;
+}
+
+.col-content {
+	min-height: 260px;
 	padding: 15px 20px;
 	background-color: #f2f2f2;
 	position: relative;
 }
 
-.culture-section{
-	float: left;
-}
-
-.environment-section {
-	float: right;
-}
-
-.column-content h4 {
+.col-content h4 {
 	font-size: 1.25em;
 	margin-bottom: 10px;
 	font-weight: 600;
 }
 
-.section-image {
-	width: 100%;
-	display: block;
-}
-
-.column-content p {
-	padding-bottom: 70px;
-	min-height: 220px;
-}
-
-.column-content button {
+.col-button {
 	background-color: #fff;
 	border: 1px solid #cdcdcd;
 	border-radius: 10px;
@@ -216,7 +162,7 @@ li a:focus {
 	letter-spacing: 0.05em;
 }
 
-.about-section button:hover {
+.col-button:hover {
 	background-color: #E6E6E6;
 	border: 1px solid #cdcdcd;
 	color: #335481;
@@ -227,13 +173,32 @@ li a:focus {
 	background-color: #f9f9f9;
 }
 
-.leftImgages,
-.middleImages,
-.rightImages {
-	box-sizing: border-box;
+.image-container {
+	position: relative;
+	margin-bottom: 0.625em;
+	overflow: hidden;
+}
+
+.first-images-col,
+.second-images-col {
+	width: 50%;
+	padding: 0 0.3125em;
 	display: inline-block;
-	width: 33.33%;
-	padding-right: 20px;
+}
+
+.second-images-col {
+	float: right;
+}
+
+.third-images-col .image-container{
+	width: 48%;
+	float: left;
+}
+
+.third-images-col .image-container:first-child {
+	margin-left: 0.3125em;
+	margin-right: 0.625em;
+	margin-bottom: 0;
 }
 
 .image {
@@ -241,26 +206,12 @@ li a:focus {
 	display: block;
 }
 
-.leftImgages {
-	float: left;
-}
-
-.rightImages {
-	float: right;
-}
-
-.imageContainer {
-	position: relative;
-	margin-bottom: 20px;
-	overflow: hidden;
-}
-
-.imageTitle {
+.image-title {
 	color: #fff;
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	padding: 60px 0px 15px 30px;
+	padding: 60px 0px 10px 15px;
 	width: 100%;
 	text-shadow: 0 2px 10px rgba(0,0,0,0.7);
 	background: linear-gradient(to bottom,rgba(0,0,0,0) 0,
@@ -268,35 +219,18 @@ li a:focus {
 	font-size: 1.125em;
 }
 
-.hiddenCaption {
+.hidden-caption {
+	opacity: 0;
 	position: absolute;
 	top: 100%;
-	height: 100%;
-	text-align: left;
-	margin:auto;
-	padding: 40px 30px 0;
-	background: rgba(51,84,129,.8);
-	color: #fff;
-	opacity: 0;
-	transition: all .25s ease-in-out;
 }
 
-.hiddenTitle {
-	padding-bottom: 20px;
-	border-bottom: 1px solid #fff;
+.hidden-title {
+	opacity: 0;
 }
 
 .hiddenCaption p {
 	padding-top: 15px;
-}
-
-.imageContainer:hover .imageTitle {
-	opacity: 0;
-}
-
-.imageContainer:hover .hiddenCaption {
-	opacity: 1;
-	top: 0;
 }
 
 span {
@@ -305,7 +239,6 @@ span {
 
 /*============= MOVIES ================*/
 .movies-section {
-	height: 500px;
 	background: linear-gradient(rgba(51,84,129,.7), rgba(51,84,129,.7)),
 					url("images/visit.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
@@ -318,36 +251,31 @@ span {
   	margin: auto;
 }
 
-.movies-content p {
+.movies-section p {
 	text-align: center;
-	font-size: 1.125em;
-	padding-top: 40px;
+	padding-top: 15px;
 }
 
 /*============= CONTACT ================*/
 #contact {
 	background: #f9f9f9;
 }
-.contact-section {
-	height: 500px;
-	padding: 30px;
-}
 
 iframe {
-	float: left;
-	width: 55%;
+	width: 100%;
+	height: 300px;
 }
 
 form {
-	float: right;
-	width: 40%;
+	margin-top: 1em;
+	width: 100%;
 	height: 450px;
 }
 
 input, textarea {
 	color: #666;
 	display: block;
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 	width: 100%;
 	border: none;
 	border-radius: 4px;
@@ -400,15 +328,126 @@ textarea:focus {
 }
 
 /*============= MEDIA QUERIES  ================*/
-@media all and (max-width:480px) {
-	.culture-section,
-	.history-section,
-	.environment-section {
-		width: 100%;
-		float: left;
-		margin-bottom: 20px;
+
+@media (min-width: 769px) {
+	h3 {
+		font-size: 2em;
+		padding-bottom: 7px;
 	}
-	section {
+
+	h4 {
+		font-weight: 800;
+		font-size: 1.125em;
+		letter-spacing: 0.05em;
+	}
+	.container {
+		width: 90%;
+		max-width: 1200px;
+		margin: 0 auto;
 		padding: 50px 0;
 	}
+	hr {
+		width: 150px;
+	}
+	.main-header {
+		height: 1000px;
+	}
+	.main-nav {
+		float: right;
+	}
+	.logo {
+		float: left;
+		height: 60px;
+	}
+	.title {
+		padding-top: 270px;
+		font-size: 5em;
+		letter-spacing: -0.02em;
+		line-height: 1.3;
+	}
+	.subtitle {
+		font-size: 2.25em;
+		line-height: 1.3;
+		border-top: 2px solid #fff;
+	}
+
+	.down-arrow {
+		opacity: 1;
+		display: block;
+		width: 50px;
+		margin: 150px auto;
+	}
+
+	.col {
+		box-sizing: border-box;
+		display: inline-block;
+		padding: 0 10px;
+		float:left;
+	}
+	.col-content {
+		min-height: 330px;
+		padding: 15px 20px;
+		background-color: #f2f2f2;
+		position: relative;
+	}
+	iframe,
+	form {
+		width: 50%;
+		height: 450px;
+		display: inline-block;
+		float:left;
+	}
+	form {
+		margin-top: 0;
+		padding-left: 20px;
+	}
 }
+
+@media (min-width:769px) and (max-width:1024px) {
+	.primary,
+	.secondary {
+		width: 50%;
+	}
+	.tertiary .col-image {
+		background-color: #f2f2f2;
+		width: 50%;
+		display: inline-block;
+		padding-right: 10px;
+		float: left;
+	}
+	.tertiary .col-content {
+		width: 50%;
+		display: inline-block;
+		float: right;
+		min-height: 250px;
+	}
+
+}
+
+@media (min-width: 1025px) {
+	.col {
+		box-sizing: border-box;
+		width: 33.33%;
+		display: inline-block;
+		padding: 0 10px;
+		float:left;
+	}
+	.first-images-col,
+	.second-images-col,
+	.third-images-col {
+		width: 33.33%;
+		padding: 0 0.3125em;
+		display: inline-block;
+		float:left;
+	}
+
+	.third-images-col .image-container{
+	width: 100%;
+	float: left;
+}
+
+.third-images-col .image-container:first-child {
+	margin: 0 0 0.625em 0;
+}
+}
+
